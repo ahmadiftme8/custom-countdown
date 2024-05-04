@@ -46,19 +46,24 @@ video{
 
 .container{
     min-width: 30rem;
-    min-height: 20rem;
+    /* min-height: 20rem; */
+    height: auto;
     color: black;
     
     border-radius: 2rem;
     border: white 3px solid;
 
+       padding: 0rem 2rem;
 
-    background: rgba(255, 255, 255, 0.412);
+    background: rgba(255, 255, 255, 0.456);
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-backdrop-filter: blur( 4px );
+backdrop-filter: blur( 6px );
 -webkit-backdrop-filter: blur( 4px );
 border-radius: 2rem;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+
+padding: 1rem 0px;
 }
 
 
@@ -70,7 +75,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     justify-content: center;
     align-items: center;
     padding: 10% 10%;
-    display: none;
+   
     
 }
 
@@ -124,6 +129,7 @@ form label{
     justify-content: center;
     align-items: center;
     display: none;
+    
 }
 
 .ul-0f-time{
@@ -148,7 +154,7 @@ form label{
 }
 
 .coundown-btn{
-    width: 75%;
+    
 
     margin-top: 1.5rem;
     border-radius: 3rem;
@@ -158,10 +164,72 @@ form label{
     background: black;
     color: white;
     cursor: pointer;
+    margin: 0 1rem;
+    max-width: 80%;
+
+    
 }
 
 .coundown-btn:hover{
     background-color: rgb(32, 32, 32);
+}
+
+
+/* complete page */
+
+.complete{
+    display: flex;
+    flex-direction: column;
+    padding:  0 1rem;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.complete h1{
+    text-align: center;
+    
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column-reverse;
+    
+
+}
+
+.complete-info{
+    margin: 0px 3rem;
+    font-size: 1.2rem;
+   
+}
+
+.complete-title{
+   /*  animation: complete 1s infinite  ease-in-out; */
+}
+
+@keyframes complete{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform: scale(1);
+    }
+
+}
+
+.complete-btn{
+    /* width: 100%; */
+    margin-top: 1.5rem;
+    border-radius: 3rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 0rem;
+    border: none;
+    background: rgb(12, 22, 12);
+    color: white;
+    cursor: pointer;
+    width: 93%;
 }
 
 
@@ -193,5 +261,14 @@ form label{
         width: 90%;
     }
 
+    .complete-title{
+        font-size: 150%;
+    }
+
+    .complete-info{
+        font-size: 95%;
+    }
+
 }
+
 
