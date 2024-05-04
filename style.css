@@ -101,7 +101,7 @@ input{
     font-size: 1.2rem;
     padding: 0.5rem 0rem;
     border: none;
-    background: black;
+    background: rgb(23, 33, 53);
     color: white;
     cursor: pointer;
 }
@@ -111,7 +111,7 @@ input{
 }
 
 .input-container h1{
-    color: white;
+    color: rgb(30, 37, 52);
     text-transform: capitalize;
 }
 
@@ -130,6 +130,10 @@ form label{
     align-items: center;
     display: none;
     
+}
+
+.countdown-title{
+    color: rgb(30, 37, 52);
 }
 
 .ul-0f-time{
@@ -161,11 +165,12 @@ form label{
     font-size: 1.2rem;
     padding: 0.5rem 0rem;
     border: none;
-    background: black;
+    background: rgb(30, 37, 52);
     color: white;
     cursor: pointer;
     margin: 0 1rem;
-    max-width: 80%;
+    width: 80%;
+    margin-top: 2rem;
 
     
 }
@@ -203,7 +208,7 @@ form label{
 }
 
 .complete-title{
-   /*  animation: complete 1s infinite  ease-in-out; */
+    animation: complete 1s infinite  ease-in-out;
 }
 
 @keyframes complete{
@@ -226,7 +231,7 @@ form label{
     font-size: 1.2rem;
     padding: 0.5rem 0rem;
     border: none;
-    background: rgb(12, 22, 12);
+    background: rgb(30, 37, 52);
     color: white;
     cursor: pointer;
     width: 93%;

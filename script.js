@@ -55,7 +55,7 @@ function updateDOM(){
     const hours = Math.floor((distance % day)/ hour)
     const minutes = Math.floor((distance % hour)/ minute)
     const seconds = Math.floor((distance % minute)/ second);
-    console.log(days, hours, minutes, seconds);
+    
 
     // hide the input
     inputContainer.style.display = 'none';
@@ -157,6 +157,3 @@ function restorePrevCountdown(){
 countdownForm.addEventListener('submit', updateCountdown);
 resetButton.addEventListener('click', resetCountdown);
 completeButton.addEventListener('click', resetCountdown);
-
-
-
