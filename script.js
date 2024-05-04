@@ -27,15 +27,16 @@ const completeButton = document.querySelector('.complete-btn');
 
 let coundownTitle = '';
 let coundownDate = '';
-let coundownValue = Date;
+let coundownValue = new Date();
 let coundownActive;
+let savedCountDown;
 
 const second = 1000;
 const minute = second * 60 ;
 const hour = minute * 60;
 const day = hour * 24;
 
-
+restorePrevCountdown();
 
 // set Date Input Minnimum with today's date
 
@@ -45,12 +46,6 @@ datePicker.setAttribute('min', today);
 //populate countdown / complete ui
 function updateDOM(){
     coundownActive = setInterval(()=>{
-
-    // hide the input
-    inputContainer.style.display = 'none';
-    // show countdown
-    countdown.style.display = 'flex';
-
         const now = Date.now();
     /* console.log( 'now:',now); */
     const distance = coundownValue - now;
@@ -62,12 +57,37 @@ function updateDOM(){
     const seconds = Math.floor((distance % minute)/ second);
     console.log(days, hours, minutes, seconds);
 
-    //populate countdown
+    // hide the input
+    inputContainer.style.display = 'none';
+    
+
+    if(distance<=0){
+        clearInterval(coundownActive);
+    // show countdown
+    countdown.style.display = 'none';
+    complete.style.display = 'flex';
+    completeInfo.textContent= `${coundownTitle} finished on ${coundownDate}`;
+
+    }else{
+        // else, show the count down in progress(populate countdown):
+
     countdownTitle.textContent = `${coundownTitle}`;
     countdownItems[0].textContent = `${days}`;
     countdownItems[1].textContent = `${hours}`;
     countdownItems[2].textContent = `${minutes}`;
     countdownItems[3].textContent = `${seconds}`;
+
+     // hide countdown   
+    complete.style.display = 'none';
+    
+    // show countdown
+    countdown.style.display = 'flex';
+
+   
+
+    }
+
+    
 
     }, second);
 
@@ -79,6 +99,12 @@ function updateCountdown(e){
     e.preventDefault();
     coundownTitle = e.srcElement[0].value;
     coundownDate = e.srcElement[1].value;
+    savedCountDown = {
+        title: coundownTitle,
+        date: coundownDate,
+    };
+    localStorage.setItem('countdown', JSON.stringify(savedCountDown));
+    console.log(savedCountDown);
     /* console.log(coundownTitle, coundownDate); */
 
     //get number version of current date, update dom
@@ -91,6 +117,7 @@ function updateCountdown(e){
         coundownValue = new Date(coundownDate).getTime();
         /* console.log( 'countdownvalue:',coundownValue); */
         updateDOM();
+        
     }
 }
 
@@ -103,15 +130,33 @@ function resetCountdown(){
     inputContainer.style.display = 'flex';
     // hide countdown
     countdown.style.display = 'none';
+    complete.style.display ='none'
     coundownTitle = '';
     coundownDate = '';
+    localStorage.removeItem('countdown');
 
+}
+
+function restorePrevCountdown(){
+    //get countdown from localstorage if available
+
+    if(localStorage.getItem('countdown')){
+        inputContainer.style.display = 'none';
+        countdown.style.display = 'flex';
+        savedCountDown = JSON.parse(localStorage.getItem('countdown'));
+        coundownTitle = savedCountDown.title;
+        coundownDate = savedCountDown.date;
+        coundownValue = new Date(coundownDate).getTime();
+        updateDOM();
+
+    }
 }
 
 //event listener
 
 countdownForm.addEventListener('submit', updateCountdown);
 resetButton.addEventListener('click', resetCountdown);
+completeButton.addEventListener('click', resetCountdown);
 
 
 
