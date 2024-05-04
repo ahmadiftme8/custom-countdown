@@ -4,9 +4,15 @@
 body{
     background-color: black;
     display: flex;
-    min-height: 100vh;
+    min-height: 90vh;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img1.jpg);
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
 
 
     font-family: "Comfortaa", sans-serif;
@@ -55,9 +61,9 @@ video{
 
        padding: 0rem 2rem;
 
-    background: rgba(255, 255, 255, 0.456);
+    background: rgba(255, 255, 255, 0.406);
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-backdrop-filter: blur( 6px );
+backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border-radius: 2rem;
 border: 1px solid rgba( 255, 255, 255, 0.18 );

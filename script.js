@@ -104,7 +104,7 @@ function updateCountdown(e){
         date: coundownDate,
     };
     localStorage.setItem('countdown', JSON.stringify(savedCountDown));
-    console.log(savedCountDown);
+   /*  console.log(savedCountDown); */
     /* console.log(coundownTitle, coundownDate); */
 
     //get number version of current date, update dom

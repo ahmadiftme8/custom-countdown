@@ -8,12 +8,13 @@
 </head>
 <body>
 
+    <!-- ingm background -->
+
     
     <!-- Video Background -->
-    <video oncontextmenu="return false;"  class="video-background" src="107129-675298808_tiny.mp4" loop muted autoplay>
-        <!-- <source src="107129-675298808_tiny.mp4"></source> -->
+    <!-- <video oncontextmenu="return false;"  class="video-background" src="107129-675298808_tiny.mp4" loop muted autoplay>
     </video>
-    <div class="video-overlay"></div>
+    <div class="video-overlay"></div> -->
 
     <!-- container -->
     <div class="container" >
@@ -25,7 +26,7 @@
                 <label for="title">Title</label>
                 <input type="text" id="title" placeholder="what are you counting down to?">
                 <label for="date-picker">select a date</label>
-                <input type="date" id="date-picker">
+                <input type="text" id="date-picker" onfocus="(this.type='date')" placeholder="Enter the Date">
                 <button type="submit" class="submit" id="submit">Submit</button>
             </form>
         </div>
